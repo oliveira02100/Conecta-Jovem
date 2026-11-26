@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Guia prático para jovens que querem entrar no mercado de trabalho: primeiro emprego, currículo, entrevistas e aprendizagem profissional.">
+  <title>Trilha Jovem | Seu começo no mercado de trabalho</title>
+  <style>
+    :root {
+      --bg: #090b14;
+      --surface: #111522;
+      --surface-2: #171d2d;
+      --text: #f4f6ff;
+      --muted: #aab2c5;
+      --purple: #9b7bff;
+      --cyan: #61d9e8;
+      --line: rgba(255,255,255,.1);
+      --shadow: 0 18px 55px rgba(0,0,0,.28);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background:
+        radial-gradient(circle at 85% 0%, rgba(111,76,255,.18), transparent 30rem),
+        radial-gradient(circle at 0% 35%, rgba(38,185,205,.10), transparent 28rem), var(--bg);
+      color: var(--text); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    .container { width: min(1120px, calc(100% - 40px)); margin: auto; }
+    header { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(18px); background: rgba(9,11,20,.82); border-bottom: 1px solid var(--line); }
+    .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 850; letter-spacing: -.5px; font-size: 1.15rem; }
+    .brand-mark { width: 35px; height: 35px; display: grid; place-items: center; border-radius: 12px; color: #090b14; background: linear-gradient(135deg,var(--cyan),var(--purple)); font-weight: 950; }
+    .nav-links { display: flex; gap: 24px; color: var(--muted); font-size: .92rem; }
+    .nav-links a:hover { color: var(--text); }
+    .menu-btn { display: none; background: transparent; border: 1px solid var(--line); color: var(--text); border-radius: 10px; padding: 7px 11px; }
+    .hero { padding: 86px 0 70px; display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 48px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; color: var(--cyan); background: rgba(97,217,232,.09); border: 1px solid rgba(97,217,232,.22); padding: 7px 12px; border-radius: 999px; font-size: .82rem; font-weight: 700; }
+    h1 { font-size: clamp(2.6rem,6vw,4.8rem); line-height: 1.04; letter-spacing: -3px; margin: 20px 0; }
+    .gradient { background: linear-gradient(100deg,var(--cyan),#b49bff 70%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .lead { color: var(--muted); font-size: 1.1rem; max-width: 610px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 12px; padding: 12px 18px; font-weight: 800; cursor: pointer; transition: transform .2s, filter .2s; }
+    .btn:hover { transform: translateY(-2px); filter: brightness(1.08); }
+    .primary { color: #090b14; background: linear-gradient(100deg,var(--cyan),#b49bff); }
+    .secondary { color: var(--text); background: var(--surface-2); border: 1px solid var(--line); }
+    .hero-card { padding: 26px; border: 1px solid var(--line); border-radius: 24px; background: linear-gradient(145deg,rgba(27,35,55,.95),rgba(16,20,33,.95)); box-shadow: var(--shadow); transform: rotate(1deg); }
+    .hero-card h3 { margin: 0 0 16px; font-size: 1.15rem; }
+    .progress { height: 9px; background: #293148; border-radius: 20px; overflow: hidden; margin: 8px 0 18px; }
+    .progress span { display: block; height: 100%; width: 68%; background: linear-gradient(90deg,var(--cyan),var(--purple)); border-radius: inherit; }
+    .step-mini { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line); }
+    .step-mini b { width: 30px; height: 30px; border-radius: 10px; display: grid; place-items: center; background: rgba(155,123,255,.16); color: #c8b9ff; }
+    section { padding: 64px 0; }
+    .section-head { max-width: 680px; margin-bottom: 28px; }
+    .kicker { color: var(--cyan); text-transform: uppercase; letter-spacing: 1.8px; font-size: .75rem; font-weight: 850; }
+    h2 { font-size: clamp(1.9rem,4vw,2.8rem); line-height: 1.15; letter-spacing: -1.3px; margin: 9px 0 12px; }
+    .section-head p, .muted { color: var(--muted); }
+    .grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .card { padding: 23px; border: 1px solid var(--line); border-radius: 18px; background: rgba(17,21,34,.82); }
+    .card-icon { width: 43px; height: 43px; display: grid; place-items: center; border-radius: 13px; font-size: 1.25rem; background: rgba(97,217,232,.1); margin-bottom: 15px; }
+    .card h3 { margin: 0 0 8px; font-size: 1.12rem; }
+    .card p { color: var(--muted); margin: 0; font-size: .94rem; }
+    .roadmap { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; counter-reset: roadmap; }
+    .roadmap .card { position: relative; }
+    .roadmap .card:before { counter-increment: roadmap; content: "0" counter(roadmap); color: var(--purple); font-weight: 900; font-size: .85rem; }
+    .jobs-tools { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0; }
+    .search { flex: 1 1 230px; min-width: 0; background: var(--surface); border: 1px solid var(--line); color: var(--text); border-radius: 12px; padding: 12px 14px; outline: none; }
+    .search:focus { border-color: var(--purple); }
+    .filter { background: var(--surface-2); border: 1px solid var(--line); color: var(--text); padding: 10px 14px; border-radius: 12px; cursor: pointer; }
+    .filter.active { border-color: var(--cyan); color: var(--cyan); }
+    .opportunity { display: flex; flex-direction: column; gap: 10px; }
+    .tag { display: inline-block; width: fit-content; padding: 4px 9px; border-radius: 999px; background: rgba(155,123,255,.14); color: #c9bbff; font-size: .75rem; font-weight: 800; }
+    .opportunity .btn { margin-top: auto; width: fit-content; font-size: .88rem; padding: 9px 13px; }
+    .notice { border: 1px solid rgba(97,217,232,.22); background: rgba(97,217,232,.07); border-radius: 16px; padding: 17px 19px; color: #d8f8fb; margin-top: 18px; font-size: .9rem; }
+    .checklist { display: grid; gap: 10px; }
+    .check { display: flex; align-items: flex-start; gap: 12px; padding: 13px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; color: var(--muted); }
+    .check input { accent-color: var(--purple); margin-top: 5px; width: 17px; height: 17px; }
+    .check.done span { text-decoration: line-through; opacity: .65; }
+    .contact { display: flex; justify-content: space-between; align-items: center; gap: 25px; padding: 32px; border-radius: 22px; background: linear-gradient(110deg,rgba(97,217,232,.13),rgba(155,123,255,.16)); border: 1px solid var(--line); }
+    footer { padding: 30px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .86rem; }
+    .footer-row { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+    @media (max-width: 800px) {
+      .hero { grid-template-columns: 1fr; padding-top: 60px; gap: 30px; }
+      .hero-card { transform: none; }
+      .grid { grid-template-columns: repeat(2,1fr); }
+      .roadmap { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 560px) {
+      .container { width: min(100% - 28px,1120px); }
+      .nav-links { display: none; position: absolute; top: 72px; left: 0; right: 0; padding: 18px 22px; background: #101421; border-bottom: 1px solid var(--line); flex-direction: column; gap: 15px; }
+      .nav-links.open { display: flex; }
+      .menu-btn { display: block; }
+      h1 { letter-spacing: -1.8px; }
+      section { padding: 48px 0; }
+      .grid, .roadmap { grid-template-columns: 1fr; }
+      .contact { align-items: flex-start; flex-direction: column; padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#inicio"><span class="brand-mark">TJ</span> TRILHA JOVEM</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false">☰</button>
+      <nav class="nav-links" id="navLinks">
+        <a href="#caminho">Por onde começar</a>
+        <a href="#oportunidades">Oportunidades</a>
+        <a href="#preparacao">Preparação</a>
+        <a href="#sobre">Sobre</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container hero" id="inicio">
+      <div>
+        <span class="eyebrow">✦ SEU FUTURO COMEÇA COM UM PASSO</span>
+        <h1>Seu primeiro passo para o <span class="gradient">mundo do trabalho.</span></h1>
+        <p class="lead">Informação, orientação e ferramentas para jovens que querem descobrir oportunidades, preparar um currículo e chegar mais confiantes ao primeiro processo seletivo.</p>
+        <div class="actions">
+          <a class="btn primary" href="#caminho">Começar minha jornada ↗</a>
+          <a class="btn secondary" href="#oportunidades">Explorar caminhos</a>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <h3>Seu plano de preparação</h3>
+        <p class="muted">Pequenas etapas ajudam a transformar um objetivo em ação.</p>
+        <div class="progress"><span></span></div>
+        <div class="step-mini"><b>1</b><span>Conheça seus interesses e habilidades</span></div>
+        <div class="step-mini"><b>2</b><span>Prepare seu currículo</span></div>
+        <div class="step-mini"><b>3</b><span>Pesquise oportunidades confiáveis</span></div>
+        <div class="step-mini"><b>4</b><span>Pratique para entrevistas</span></div>
+      </aside>
+    </div>
+
+    <section id="caminho">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Primeiros passos</span>
+          <h2>Você não precisa saber tudo para começar.</h2>
+          <p>O início da carreira é um período de descoberta. Foque em aprender, reconhecer suas habilidades e buscar experiências adequadas à sua idade e realidade.</p>
+        </div>
+        <div class="grid">
+          <article class="card"><div class="card-icon">🧭</div><h3>Descubra seus interesses</h3><p>Pense nas atividades de que gosta, nos assuntos que aprende com facilidade e nos problemas que gostaria de ajudar a resolver.</p></article>
+          <article class="card"><div class="card-icon">📄</div><h3>Monte seu currículo</h3><p>Apresente seus estudos, cursos, projetos escolares, trabalhos voluntários e habilidades. Experiência formal não é o único ponto importante.</p></article>
+          <article class="card"><div class="card-icon">💬</div><h3>Treine sua comunicação</h3><p>Pratique falar sobre você, explicar o que sabe fazer e fazer perguntas sobre a vaga e a empresa.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Plano de ação</span>
+          <h2>Uma jornada em quatro etapas.</h2>
+          <p>Use este roteiro como ponto de partida e avance no seu ritmo.</p>
+        </div>
+        <div class="roadmap">
+          <article class="card"><h3>Autoconhecimento</h3><p>Liste interesses, habilidades e áreas que gostaria de conhecer.</p></article>
+          <article class="card"><h3>Preparação</h3><p>Organize currículo, documentos necessários e exemplos de projetos.</p></article>
+          <article class="card"><h3>Pesquisa</h3><p>Busque programas de aprendizagem, cursos e vagas em canais confiáveis.</p></article>
+          <article class="card"><h3>Desenvolvimento</h3><p>Peça feedback, continue estudando e registre o que aprendeu.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="oportunidades">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Explore possibilidades</span>
+          <h2>Conheça caminhos para começar.</h2>
+          <p>As opções abaixo são áreas e modalidades para pesquisar. Esta página é um guia educativo, não um mural de vagas abertas.</p>
+        </div>
+        <div class="jobs-tools">
+          <input class="search" id="searchInput" type="search" placeholder="Pesquisar uma área..." aria-label="Pesquisar uma área">
+          <button class="filter active" data-filter="todos">Todas</button>
+          <button class="filter" data-filter="aprendizagem">Aprendizagem</button>
+          <button class="filter" data-filter="estudo">Cursos</button>
+          <button class="filter" data-filter="carreira">Carreiras</button>
+        </div>
+        <div class="grid" id="opportunityGrid">
+          <article class="card opportunity" data-category="aprendizagem"><span class="tag">Aprendizagem</span><h3>Jovem Aprendiz</h3><p>Programa que combina formação teórica e prática profissional, seguindo regras específicas de idade, matrícula e contrato.</p><a class="btn secondary" href="https://www.gov.br/trabalho-e-emprego/pt-br" target="_blank" rel="noopener">Pesquisar no portal oficial ↗</a></article>
+          <article class="card opportunity" data-category="estudo"><span class="tag">Cursos</span><h3>Qualificação gratuita</h3><p>Cursos podem ajudar a desenvolver competências digitais, comunicação, atendimento e conhecimentos técnicos.</p><a class="btn secondary" href="https://www.gov.br/pt-br/servicos" target="_blank" rel="noopener">Buscar serviços públicos ↗</a></article>
+          <article class="card opportunity" data-category="carreira"><span class="tag">Carreiras</span><h3>Tecnologia</h3><p>Desenvolvimento web, suporte, design e análise de dados são áreas que envolvem estudo e prática contínuos.</p><a class="btn secondary" href="https://www.freecodecamp.org/portuguese/" target="_blank" rel="noopener">Explorar programação ↗</a></article>
+          <article class="card opportunity" data-category="carreira"><span class="tag">Carreiras</span><h3>Administração</h3><p>Organização, comunicação, atendimento e apoio a processos aparecem em muitos tipos de empresas.</p><a class="btn secondary" href="https://www.gov.br/pt-br" target="_blank" rel="noopener">Conhecer serviços ↗</a></article>
+          <article class="card opportunity" data-category="estudo"><span class="tag">Cursos</span><h3>Competências digitais</h3><p>Aprenda ferramentas de escritório, segurança digital, pesquisa e colaboração on-line.</p><a class="btn secondary" href="https://www.ev.org.br/" target="_blank" rel="noopener">Ver cursos gratuitos ↗</a></article>
+          <article class="card opportunity" data-category="aprendizagem"><span class="tag">Aprendizagem</span><h3>Orientação profissional</h3><p>Converse com a escola, serviços públicos de emprego e instituições formadoras sobre opções na sua região.</p><a class="btn secondary" href="https://www.gov.br/trabalho-e-emprego/pt-br" target="_blank" rel="noopener">Consultar informações ↗</a></article>
+        </div>
+        <p class="notice">Atenção: desconfie de vagas que cobram para participar, pedem senhas ou solicitam dados pessoais sem explicar o motivo. Para adolescentes, as atividades permitidas dependem da idade e devem respeitar a legislação de proteção ao trabalho.</p>
+        <p class="muted" id="noResults" hidden>Nenhum resultado encontrado. Tente outro termo.</p>
+      </div>
+    </section>
+
+    <section id="preparacao">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Checklist interativo</span>
+          <h2>Prepare-se para sua próxima oportunidade.</h2>
+          <p>Marque as tarefas conforme for concluindo. A lista funciona no seu navegador enquanto a página estiver aberta.</p>
+        </div>
+        <div class="card checklist" id="checklist">
+          <label class="check"><input type="checkbox"><span>Listei minhas habilidades e interesses.</span></label>
+          <label class="check"><input type="checkbox"><span>Organizei minha formação e meus cursos.</span></label>
+          <label class="check"><input type="checkbox"><span>Preparei uma versão simples do meu currículo.</span></label>
+          <label class="check"><input type="checkbox"><span>Pesquisei informações sobre a empresa ou instituição.</span></label>
+          <label class="check"><input type="checkbox"><span>Treinei como me apresentar em uma entrevista.</span></label>
+          <label class="check"><input type="checkbox"><span>Conferi se a oportunidade é confiável e adequada à minha idade.</span></label>
+        </div>
+        <p class="muted" id="checkCount" aria-live="polite" style="margin-top:12px">0 de 6 tarefas concluídas.</p>
+      </div>
+    </section>
+
+    <section id="sobre">
+      <div class="container">
+        <div class="contact">
+          <div>
+            <span class="kicker">Informação que abre caminhos</span>
+            <h2>Seu futuro não precisa começar sozinho.</h2>
+            <p class="muted">Converse com professores, familiares, orientadores e instituições de confiança. Pedir orientação também faz parte do desenvolvimento profissional.</p>
+          </div>
+          <a class="btn primary" href="#inicio">Voltar ao início ↑</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <span>© <span id="year"></span> Trilha Jovem — Projeto educativo.</span>
+      <span>Feito para apoiar jovens na descoberta do mundo do trabalho.</span>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => {
+      const opened = navLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(opened));
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }));
+
+    const searchInput = document.getElementById('searchInput');
+    const filters = [...document.querySelectorAll('.filter')];
+    const cards = [...document.querySelectorAll('.opportunity')];
+    const noResults = document.getElementById('noResults');
+    let activeFilter = 'todos';
+
+    function filterCards() {
+      const term = searchInput.value.toLocaleLowerCase('pt-BR').trim();
+      let visible = 0;
+      cards.forEach(card => {
+        const matchesText = card.innerText.toLocaleLowerCase('pt-BR').includes(term);
+        const matchesCategory = activeFilter === 'todos' || card.dataset.category === activeFilter;
+        card.hidden = !(matchesText && matchesCategory);
+        if (!card.hidden) visible++;
+      });
+      noResults.hidden = visible !== 0;
+    }
+    searchInput.addEventListener('input', filterCards);
+    filters.forEach(button => button.addEventListener('click', () => {
+      filters.forEach(item => item.classList.remove('active'));
+      button.classList.add('active');
+      activeFilter = button.dataset.filter;
+      filterCards();
+    }));
+
+    const checks = [...document.querySelectorAll('#checklist input')];
+    const checkCount = document.getElementById('checkCount');
+    function updateChecks() {
+      const completed = checks.filter(check => check.checked).length;
+      checks.forEach(check => check.closest('.check').classList.toggle('done', check.checked));
+      checkCount.textContent = `${completed} de ${checks.length} tarefas concluídas.`;
+    }
+    checks.forEach(check => check.addEventListener('change', updateChecks));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
